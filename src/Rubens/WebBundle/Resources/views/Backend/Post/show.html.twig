@@ -1,0 +1,80 @@
+{# src/Rubens/RubensWebBundle/Resources/views/Backend/Post/show.html.twig #}
+
+{% extends "RubensWebBundle:Backend:backend.html.twig" %}
+{% block body -%}
+
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Voir l'article N° : {{ entity.id }}
+                        </div>
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                           <div class="alert alert-success">
+                               <div class="flash-notice">
+                                   {{ flashMessage }}
+                               </div>
+                           </div>
+                           {% endfor %}
+                           <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form">
+                                        <fieldset disabled>
+                                            <div class="form-group">
+                                                <label for="title">Titre</label>
+                                                <input class="form-control" id="title" type="text" placeholder="{{ entity.title }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="subtitle">Sous-Titre</label>
+                                                <input class="form-control" id="subtitle" type="text" placeholder="{{ entity.subtitle }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="chapo">Chapo</label>
+                                                <input class="form-control" id="chapo" type="text" placeholder="{{ entity.chapo }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="body">Body</label>
+                                                <textarea class="form-control" id="body" type="text" disabled>{{ entity.body|raw }}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="createdAt">Date de création</label>
+                                                <input class="form-control" id="createdAt" type="text" placeholder="{{ entity.createdAt|date('d-m-Y à H:i') }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="updatedAt">Date de modification</label>
+                                                <input class="form-control" id="updatedAt" type="text" placeholder="{{ entity.updatedAt|date('d-m-Y à H:i') }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="publishedAt">Date de publication</label>
+                                                <input class="form-control" id="publishedAt" type="text" placeholder="{{ entity.publishedAt|date('d-m-Y à H:i') }}" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="categories">Catégorie sélectionnée</label>
+                                                <select id="categories" class="form-control">
+                                                    <option>{% for categorie in entity.categories %}{{ categorie.title }}{% endfor %}</option>
+                                                </select>
+                                            </div>                                            
+                                            <div class="form-group">
+                                                <label for="images">Image sélectionnée</label>
+                                                <select id="images" class="form-control">
+                                                    <option>{% for image in entity.images %}{{ image.alt }}{% endfor %}</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="videos">Vidéo sélectionnée</label>
+                                                <select id="videos" class="form-control">
+                                                    <option>{% for video in entity.videos %}{{ video.title }}{% endfor %}</option>
+                                                </select>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+{% endblock %}

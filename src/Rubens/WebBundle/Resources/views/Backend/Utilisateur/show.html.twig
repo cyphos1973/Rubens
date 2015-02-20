@@ -1,0 +1,38 @@
+{# src/Rubens/RubensWebBundle/Resources/views/Backend/Utilisateur/show.html.twig #}
+
+{% extends "RubensWebBundle:Backend:backend.html.twig" %}
+{% block body -%}
+    
+                    <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Voir l'utilisateur N° : {{ entity.id }}
+                        </div>
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                           <div class="alert alert-success">
+                               <div class="flash-notice">
+                                   {{ flashMessage }}
+                               </div>
+                           </div>
+                        {% endfor %}
+                           <div class="panel-body">
+                                <div class="col-lg-12">
+                                    <form role="form" class="form-horizontal">
+                                        <h1>{{ entity.prenom }} {{ entity.nom }}</h1>
+                                        <div class="form-group">
+                                            <label for="disabledSelect">Date de création</label>
+                                                <input class="form-control" id="disabledInput" type="text" placeholder="{{ entity.lastlogin|date('d-m-Y à H:i') }}" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="disabledSelect">Rôle</label>
+                                                <input class="form-control" id="disabledInput" type="text" placeholder="{% for role in entity.roles %}{{ role }}, {% endfor %}" disabled>
+                                        </div>                                        
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+{% endblock %}

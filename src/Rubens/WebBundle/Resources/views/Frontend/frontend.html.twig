@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+     <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %} - Rubens Alcais</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="cyphos" >
+
+        {% block stylesheets %}
+{#      <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" />#}
+        <link rel="stylesheet" href="{{ asset('bundles/rubensweb/bootstrap-3.3.1/css/bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/rubensweb/css/zoombox.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/rubensweb/css/frontend.css') }}" type="text/css" />
+        {% endblock %}
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="../assets/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('bundles/rubensweb/images/apple-touch-icon-144-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/rubensweb/images/apple-touch-icon-114-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('bundles/rubensweb/images/apple-touch-icon-72-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/rubensweb/images/apple-touch-icon-57-precomposed.png') }}">
+        <link rel="shortcut icon" href="{{ asset('bundles/rubensweb/images/favicon.png') }}">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <img class="img-responsive" src="{{ asset('bundles/rubensweb/images/bandeau.jpg') }}" alt="Bandeau Logo" />
+                </div>
+            </div>
+<!-- NAVBAR
+================================================== -->
+            {% include "RubensWebBundle:Frontend:navbar.html.twig" %}
+
+<!-- BREADCRUMBS
+================================================== -->
+            {% set currentItem = cnerta_breadcrumb_get('RubensCoreBundle:Builder:mainMenu') %}
+            <ol class="breadcrumb">
+                <li><a href="{{ path('rubens_web_homepage') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+                {% for item in currentItem %}
+                    {% if loop.index != 1 %}
+{#                        {% if loop.index > 1 %} &gt; {% endif %}#}
+                        <li class="active">{{ item.label }}</li>
+                    {% elseif not loop.last %}
+                        <li><a href="{{ item.uri }}">{{ item.label }}</a></li>
+                    {% else %}
+                        <li class="active">{{ item.label }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+{#            <ol class="breadcrumb">
+                  <li><a href="{{ path('rubens_web_homepage') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+                {% for item in currentItem %}
+                    {% if loop.index != 1 %}
+                        {% if loop.index > 1 %} &gt; {% endif %}
+                        {% if not loop.last %}<a href="{{ item.uri }}">{{ item.label }}</a>
+                        {% else %}<li>{{ item.label }}</li>{% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ol>#}
+{#                {% block breadcrumb %}
+                {% spaceless %}
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('rubens_web_homepage') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+                {% set currentItem = cnerta_breadcrumb_get('RubensCoreBundle:Builder:mainMenu') %}
+                {% for item in currentItem %}
+                         <li class="active">{{ item.label }}</li>
+                    {% if loop.index != 1 %}
+                        {% if loop.index > 2 %}
+                            &gt; {% endif
+                        %}
+                        {% if not loop.last %}
+                            <a href="{{ item.uri }}">{{ item.label }}</a>
+                        {% else %}
+                            <li class="active">{{ item.label }}</li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </ol>
+               {% endspaceless %}
+               {% endblock %}#}
+
+{#            {% set rightItem = cnerta_breadcrumb_get('RubensCoreBundle:Builder:rightMenu') %}
+            <ol class="breadcrumb">
+                <li><i class="glyphicon glyphicon-home"></i></li>
+                {% for item in rightItem %}
+                    {% if loop.index == 1 and loop.last %}
+                        <li class="active">{{ item.label }}</li>
+                    {% elseif not loop.last %}
+                        <li><a href="{{ item.uri }}">{{ item.label }}</a></li>
+                    {% else %}
+                        <li class="active">{{ item.label }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>     #}
+
+<!-- INFOS
+================================================== -->
+            {% block body %}
+            {% endblock %}
+        </div>
+<!-- FOOTER
+================================================== -->
+        {% include "RubensWebBundle:Frontend:footer.html.twig" %}
+
+<!-- JAVASCRIPT
+================================================== -->
+        {% block javascript %}
+                    <script src="{{ asset('bundles/rubensweb/js/jquery-1.10.2.js') }}"></script>
+                    <script src="{{ asset('bundles/rubensweb/bootstrap-3.1.1/js/bootstrap.js') }}"></script>
+                    <script src="{{ asset('bundles/rubensweb/js/zoombox.js') }}"></script>
+                    <script src="{{ asset('bundles/rubensweb/js/holder.js') }}"></script>
+                           <script type="text/javascript">
+        jQuery(function($){
+            $('a.zoombox').zoombox();
+
+{#            $('a.zoombox').zoombox({
+                theme       : 'zoombox',        //available themes : zoombox,lightbox, prettyphoto, darkprettyphoto, simple
+                opacity     : 0.9,              // Black overlay opacity
+                duration    : 800,              // Animation duration
+                animation   : true,             // Do we have to animate the box ?
+                width       : 1200,              // Default width
+                height      : 800,              // Default height
+                gallery     : true,             // Allow gallery thumb view
+                autoplay    : false                // Autoplay for video
+            });#}
+        });
+        </script>
+        {% endblock %}
+    </body>
+</html>

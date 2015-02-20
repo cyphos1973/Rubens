@@ -1,0 +1,26 @@
+Rubens\CoreBundle\Entity\Categorie:
+    type: entity
+    table: categorie
+    repositoryClass: Rubens\CoreBundle\Entity\CategorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt, setUpdatedAt ]
+        preUpdate: [ setUpdatedAt ]
+    manyToMany:
+        posts:
+            targetEntity: Rubens\CoreBundle\Entity\Post
+            mappedBy: categories

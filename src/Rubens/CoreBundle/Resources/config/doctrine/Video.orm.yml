@@ -1,0 +1,28 @@
+Rubens\CoreBundle\Entity\Video:
+    type: entity
+    table: video
+    repositoryClass: Rubens\CoreBundle\Entity\VideoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt, setUpdatedAt ]
+        preUpdate: [ setUpdatedAt ]
+    manyToMany:
+        posts:
+            targetEntity: Rubens\CoreBundle\Entity\Post
+            mappedBy: videos

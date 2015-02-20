@@ -1,0 +1,20 @@
+{# src/Rubens/WebBundle/Ressources/views/Frontend/galeries.html.twig #}
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}GALERIES{% endblock %}
+
+{% block body %}
+    <h1>GALERIES</h1>
+    <div class="row">
+        <ul class="navigation">
+        {{ knp_pagination_render(images) }}
+        </ul>
+        {% for image in images %}
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ asset('bundles/rubensweb/images/'~image.url) }}" class="thumbnail zoombox">
+                    <img src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(250,180).grayscale.jpeg }}" alt="{{ image.alt }}" title="{{ image.alt }}">
+                </a>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

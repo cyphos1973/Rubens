@@ -1,0 +1,53 @@
+{# src/Rubens/WebBundle/Resources/views/Frontend/voir.html.twig #}
+
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <div class="col-xs_12 col-sm-12 col-md-8 col-lg-8">
+                <h1>{{ post.title }}</h1>
+                {% if post.enabledVideo %}
+                    <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+                        {% for video in post.videos %}
+                            <iframe allowfullscreen="" src="http://www.youtube.com/embed/{{video.url}}" frameborder="0"></iframe>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {% for image in post.images %}
+                        <img class="img-responsive" src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(780,300).grayscale.jpeg }}" alt="{{ image.alt }}" />
+                    {% endfor %}
+                {% endif %}
+                    <p> <i class="glyphicon glyphicon-calendar"></i> Crée le {{ post.createdAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-pencil"></i> Modifié le {{ post.updatedAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-ok-sign"></i> Publié le {{ post.publishedAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-tags"></i> {% for categorie in post.categories %}
+                             <span class="label label-info">{{ categorie.title }}</span>
+                      {% endfor %}
+                    </p>
+                    <h4>{{ post.subtitle }} </h4>
+                <p>{{ post.body | raw }}</p>
+                <a href="{{ path('rubens_web_homepage') }}">retourner à l'accueil</a>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                        <script type="text/javascript"><!--
+                        google_ad_client = "ca-pub-8764804742914439";
+                        /* pub 3 */
+                        google_ad_slot = "7945351997";
+                        google_ad_width = 468;
+                        google_ad_height = 60;
+                        //-->
+                        </script>
+                        <script type="text/javascript"
+                        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </div>
+            	</div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+               	<h1>CHRONOS</h1>
+                {% for chrono in chronos %}
+                    <p><span class="label label-default label-arrow label-arrow-right pull-left">{{ chrono.publishedAt|date('d-m-Y') }}</span> :
+                            <a href="{{ path('rubens_web_voir', {'id': chrono.id} ) }}" >{{ chrono.title }}</a>
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

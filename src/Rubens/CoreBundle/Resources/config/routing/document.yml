@@ -1,0 +1,30 @@
+admin_document:
+    pattern:  /
+    defaults: { _controller: "RubensCoreBundle:Document:index" }
+
+admin_document_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "RubensCoreBundle:Document:show" }
+
+admin_document_new:
+    pattern:  /new
+    defaults: { _controller: "RubensCoreBundle:Document:new" }
+
+admin_document_create:
+    pattern:  /create
+    defaults: { _controller: "RubensCoreBundle:Document:create" }
+    requirements: { _method: post }
+
+admin_document_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "RubensCoreBundle:Document:edit" }
+
+admin_document_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "RubensCoreBundle:Document:update" }
+    requirements: { _method: post|put }
+
+admin_document_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "RubensCoreBundle:Document:delete" }
+    requirements: { _method: post|delete }

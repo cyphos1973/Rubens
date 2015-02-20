@@ -1,0 +1,28 @@
+Rubens\CoreBundle\Entity\Image:
+    type: entity
+    table: image
+    repositoryClass: Rubens\CoreBundle\Entity\ImageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        url:
+            type: string
+            length: 255
+        alt:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt, setUpdatedAt ]
+        preUpdate: [ setUpdatedAt ]
+    manyToMany:
+        posts:
+            targetEntity: Rubens\CoreBundle\Entity\Post
+            mappedBy: images

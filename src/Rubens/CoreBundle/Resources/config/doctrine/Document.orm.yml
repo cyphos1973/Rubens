@@ -1,0 +1,30 @@
+Rubens\CoreBundle\Entity\Document:
+    type: entity
+    table: document
+    repositoryClass: Rubens\CoreBundle\Entity\DocumentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+            nullable: true
+        published:
+            type: boolean
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt, setUpdatedAt ]
+        preUpdate: [ setUpdatedAt ]

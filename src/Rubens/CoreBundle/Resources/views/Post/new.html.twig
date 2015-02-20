@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Post creation</h1>
+
+    {{ form(form) }}
+{#<form role="form" action="" method="post" {{ form_enctype(form) }}>
+
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+          {{ form_label(form.title, "Titre de l'article") }}
+          {{ form_errors(form.title) }}
+          {{ form_widget(form.title) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.chapo, "Chapo de l'article") }}
+          {{ form_errors(form.chapo) }}
+          {{ form_widget(form.chapo) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.body, "Contenu de l'article") }}
+          {{ form_errors(form.body) }}
+          {{ form_widget(form.body) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.createdAt, "Date de l'article") }}
+          {{ form_errors(form.createdAt) }}
+          {{ form_widget(form.createdAt) }}
+        </div>
+        {{ form_rest(form) }}
+</form>#}
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('post') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+admin_image:
+    pattern:  /
+    defaults: { _controller: "RubensCoreBundle:Image:index" }
+
+admin_image_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "RubensCoreBundle:Image:show" }
+
+admin_image_new:
+    pattern:  /new
+    defaults: { _controller: "RubensCoreBundle:Image:new" }
+
+admin_image_create:
+    pattern:  /create
+    defaults: { _controller: "RubensCoreBundle:Image:create" }
+    requirements: { _method: post }
+
+admin_image_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "RubensCoreBundle:Image:edit" }
+
+admin_image_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "RubensCoreBundle:Image:update" }
+    requirements: { _method: post|put }
+
+admin_image_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "RubensCoreBundle:Image:delete" }
+    requirements: { _method: post|delete }

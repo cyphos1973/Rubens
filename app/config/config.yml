@@ -1,0 +1,182 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    translator : ~
+    #translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+
+# session en base de données
+#    session:
+#        handler_id:     session.handler.pdo
+#
+#parameters:
+#    pdo.db_options:
+#        db_table:    session
+#        db_id_col:   session_id
+#        db_data_col: session_value
+#        db_time_col: session_time
+#
+#services:
+#    pdo:
+#        class: PDO
+#        arguments:
+#            - "mysql:dbname=%database_name%"
+#            - %database_user%
+#            - %database_password%
+#
+#    session.handler.pdo:
+#        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+#        arguments: [@pdo, %pdo.db_options%]
+
+# session en localhost
+    session:
+          handler_id:  ~
+
+# session chez 1and1
+#    session:
+#        handler_id: session.handler.native_file
+#        save_path: "%kernel.root_dir%/sessions"
+#    fragments:       ~
+#    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'RubensWebBundle:Form:fields.html.twig'
+
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [FMElfinderBundle]
+    java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        uglifyjs2:
+            # the path to the uglifyjs executable
+            bin: /usr/bin/uglifyjs
+        uglifycss:
+            bin: /usr/bin/uglifycss
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Rubens\CoreBundle\Entity\Utilisateur
+
+hautelook_alice:
+    locale: en_US   # default
+    seed: 1         # default
+
+#fm_elfinder:
+#    locale: %locale%
+#    editor: ckeditor
+#    showhidden: false
+#    fullscreen: true
+#    include_assets: true
+#    compression: false
+#    connector:
+#        debug: false
+#        roots:
+#            uploads:
+#                driver: LocalFileSystem
+#                path: uploads
+#                upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+#                upload_deny: ['all']
+#                upload_max_size: 2M
+
+fm_elfinder:
+    instances:
+        default:
+            locale: %locale% # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, form, custom and simple
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        show_hidden: false # defaults to false
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M
+
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters:
+                instance: ckeditor
+                
+#trsteel_ckeditor:
+#    filebrowser_image_browse_url:
+#        route: elfinder
+
+knp_menu:
+    twig:
+        template: knp_menu.html.twig
+    templating: false
+    default_renderer: twig
+
+cnerta_breadcrumb:
+    twig:
+        template: CnertaBreadcrumbBundle::cnerta_breadcrumb.html.twig
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+#        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        pagination: RubensWebBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template

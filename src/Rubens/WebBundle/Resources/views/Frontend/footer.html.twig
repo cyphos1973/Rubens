@@ -1,0 +1,32 @@
+{# src/Rubens/WebBundle/Resources/views/Frontend/footer.html.twig #}
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h5>Association</h5>
+                        <ul class="list1">
+                            <li><a href="{{ path('rubens_web_bureau')}}">Bureau</a></li>
+                            <li><a href="{{ path('rubens_web_contact')}}">Contact</a></li>
+                            <li><a href="{{ path('rubens_web_agenda')}}">Agenda</a></li>
+                            <li><a href="{{ path('rubens_web_mentions')}}">A propos</a></li>
+                        </ul>
+                    </article>
+                    <article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h5>Site</h5>
+                        <ul class="list1">
+                            <li><a href="{{path('rubens_security_login')}}" target="_blank">Admin</a></li>
+                            <li><a href="{{ path('rubens_web_mentions')}}">Mentions légales</a></li>
+                            <li><a href="{{ path('rubens_web_plan')}}">Plan du site</a></li>
+                        </ul>
+                    </article>
+                 </div>
+            </section>
+            <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>RUBENS ALCAIS &copy; 2014</p>
+            </section>
+        </div>
+    </div>
+</footer>

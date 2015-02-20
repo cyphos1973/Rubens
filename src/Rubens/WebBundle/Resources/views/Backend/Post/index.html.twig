@@ -1,0 +1,53 @@
+{# src/Rubens/RubensWebBundle/Resources/views/Backend/Post/index.html.twig #}
+
+{% extends "RubensWebBundle:Backend:backend.html.twig" %}
+{% block body %}
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                TABLES : articles
+            </div>
+            <!-- /.panel-heading -->
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                <div class="flash-notice">
+                    {{ flashMessage }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-tables">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Mis à jour</th>
+                                <th>Article publié</th>
+                                <th>Image</th>
+                                <th>Vidéo activé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in entities %}
+                            <tr class="odd gradeX">
+                                <td>{{ post.id }}</td>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.updatedAt|date('d-m-Y à H:i')}}</td>
+                                <td>{% if post.published %}Article publié{% endif %}</td>
+                                <td>{% for image in post.images %}{{ image.alt }}{% endfor %}</td>
+                                <td>{% if post.enabledVideo %}Vidéo activée {% endif %}</td>
+                                <td><a href="{{path('rubens_admin_post_edit', {'id': post.id} )}}">Modifier</a> - <a href="{{path('rubens_admin_post_show', {'id': post.id} )}}">Voir</a></td>
+                            </tr>
+                           {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{# src/Rubens/RubensWebBundle/Resources/views/Backend/Image/show.html.twig #}
+
+{% extends "RubensWebBundle:Backend:backend.html.twig" %}
+{% block body -%}
+
+                    <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Voir l'image N° : {{ entity.id }}
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th>Id</th>
+                                                <td>{{ entity.id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Url :</th>
+                                                <td>{{ entity.url }}</td>
+                                            </tr>                                         
+                                            <tr>
+                                                <th>Alt :</th>
+                                                <td>{{ entity.alt }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Crée :</th>
+                                                <td>{{ entity.createdAt|date('d-m-Y à H:i') }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Modifié :</th>
+                                                <td>{{ entity.updatedAt|date('d-m-Y à H:i') }}</td>
+                                            </tr>                                            
+                                            <tr>
+                                                <th></th>
+                                                <td><img class="img-responsive" src="{{ image('bundles/rubensweb/images/'~entity.url).zoomCrop(900,400).grayscale.jpeg }}" alt="{{ entity.alt }}" /></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                    
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+{% endblock %}

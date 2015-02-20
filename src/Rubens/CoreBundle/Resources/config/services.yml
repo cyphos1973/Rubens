@@ -1,0 +1,7 @@
+parameters:
+#    rubens_core.example.class: Rubens\CoreBundle\Example
+
+services:
+#    rubens_core.example:
+#        class: %rubens_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

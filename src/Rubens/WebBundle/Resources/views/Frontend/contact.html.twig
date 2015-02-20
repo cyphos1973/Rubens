@@ -1,0 +1,19 @@
+{# src/Rubens/WebBundle/Resources/views/Frontend/contact.html.twig #}
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}Contact{% endblock %}
+{% block body %}
+    <h1>CONTACT</h1>
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ label }}">
+                {{ flash }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {{ form(form) }}
+{#<form action="{{ path('rubens_web_contact') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>#}
+{% endblock %}

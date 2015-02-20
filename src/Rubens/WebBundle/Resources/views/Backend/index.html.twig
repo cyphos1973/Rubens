@@ -1,0 +1,17 @@
+{# src/Rubens/WebBundle/Resources/views/Backend/index.html.twig #}
+
+{% extends "RubensWebBundle:Backend:backend.html.twig" %}
+{% block body %}
+    <div class="col-lg-12">
+        <p>Bonjour <strong>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}{{ app.user.prenom }}{% endif %}</strong>
+
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+            ( Super Administrateur)
+        {% elseif is_granted('ROLE_ADMIN') %}
+            ( Administrateur)
+        {% else %}
+            ( Membre)
+        {% endif %}
+        </p>
+    </div>
+{% endblock %}

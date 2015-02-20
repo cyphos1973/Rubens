@@ -1,0 +1,83 @@
+{# src/Rubens/WebBundle/Resources/views/Post/index.html.twig #}
+
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}Espace public{% endblock %}
+
+{% block body %}
+    {% for post in posts if post.published %}
+        <h1><a href="{{ path('rubens_web_voir', {'id': post.id} ) }}">{{ post.title }}</a></h1>
+{#            <video class="video-js" controls
+              preload="auto" width="480" height="320" poster="img/poster.jpg" data-setup="{}">
+              <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm">
+            </video>#}
+        {% if post.enabledVideo %}
+            {% for video in post.videos %}
+                <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+                    <iframe allowfullscreen="" src="{{video.url}}" frameborder="0"></iframe>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for image in post.images %}
+                <img class="img-responsive" src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(780,300).grayscale.jpeg }}" alt="{{ image.alt }}" />
+            {% endfor %}
+        {% endif %}
+        <p>{{ post.subtitle }} -
+          {% for categorie in post.categories %}
+                  {{ categorie.title }}
+          {% endfor %} - <small>Crée le {{ post.createdAt|date('d-m-Y à H:i') }} | Modifié le {{ post.updatedAt|date('d-m-Y à H:i') }} | Publié le {{ post.publishedAt|date('d-m-Y à H:i') }}</small>
+        </p>
+        <p>{{ post.chapo }}</p>
+    {% endfor %}
+{% endblock %}
+    
+{% block breves1 %}
+    {% for breve in breves1 %}
+    <h3><a href="#">{{ breve.title }}</a></h3>
+        <p>{{ breve.chapo }}</p>
+        <p>
+            {% for categorie in breve.categories %}
+      		{{ categorie.title }}
+            {% endfor %} - <small>Publié le {{ breve.createdAt|date('d-m-Y à H:i') }}</small>
+        </p>
+      {% for image in breve.images %}
+	      <img class="img-responsive" src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(323,100).grayscale.jpeg }}" alt="{{ image.alt }}" />
+       {% endfor %}
+    {% endfor %}
+ {% endblock %}
+
+ 
+ 
+{% block breves2 %}
+    {% for breve in breves2 %}
+    <h3><a href="{{ path('rubens_web_voir', {'id': breve.id} ) }}">{{ breve.title }}</a></h3>
+        <p>{{ breve.chapo }}</p>
+        <p>
+            {% for categorie in breve.categories %}
+      		{{ categorie.title }}
+            {% endfor %} - <small>Publié le {{ breve.createdAt|date('d-m-Y à H:i') }}</small>
+        </p>
+      {% for image in breve.images %}
+	      <img class="img-responsive" src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(323,100).grayscale.jpeg }}" alt="{{ image.alt }}" />
+    	{% endfor %}
+    {% endfor %}
+ {% endblock %}
+
+ 
+ 
+{% block chronos %}
+    {% for chrono in chronos %}
+                    <li>
+                        <figure>
+        {% for image in chrono.images %}
+	      <img src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(75,100).grayscale.jpeg }}" alt="{{ image.alt }}" />
+    	{% endfor %}
+
+                        </figure>
+                        <div class="extra-wrap">
+                            <a href="{{ path('rubens_web_voir', {'id': chrono.id} ) }}">{{ chrono.title }}</a>
+                            <p>Publié le {{ chrono.createdAt|date('d-m-Y à H:i') }}</p>
+                            <p>{{ chrono.chapo }}</p>
+                        </div>
+                    </li>
+	{% endfor %}
+{% endblock %}

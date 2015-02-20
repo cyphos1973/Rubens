@@ -1,0 +1,30 @@
+post:
+    pattern:  /
+    defaults: { _controller: "RubensCoreBundle:Post:index" }
+
+post_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "RubensCoreBundle:Post:show" }
+
+post_new:
+    pattern:  /new
+    defaults: { _controller: "RubensCoreBundle:Post:new" }
+
+post_create:
+    pattern:  /create
+    defaults: { _controller: "RubensCoreBundle:Post:create" }
+    requirements: { _method: post }
+
+post_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "RubensCoreBundle:Post:edit" }
+
+post_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "RubensCoreBundle:Post:update" }
+    requirements: { _method: post|put }
+
+post_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "RubensCoreBundle:Post:delete" }
+    requirements: { _method: post|delete }

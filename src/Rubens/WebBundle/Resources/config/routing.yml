@@ -1,0 +1,297 @@
+# Rubens/WebBundle/Resources/config/routing.yml
+
+# partie publique
+rubens_web_homepage:
+    pattern:  /
+    defaults: { _controller: RubensWebBundle:Frontend:index }
+
+rubens_web_archives:
+    pattern:  /archives
+    defaults: { _controller: RubensWebBundle:Frontend:archives }
+
+rubens_web_galeries:
+    pattern:  /galeries
+    defaults: { _controller: RubensWebBundle:Frontend:galeries }
+
+rubens_web_videos:
+    pattern:  /videos
+    defaults: { _controller: RubensWebBundle:Frontend:videos }
+    
+rubens_web_bureau:
+    pattern:  /bureau
+    defaults: { _controller: RubensWebBundle:Frontend:bureau }
+
+rubens_web_divers:
+    pattern:  /divers
+    defaults: { _controller: RubensWebBundle:Frontend:divers }
+
+rubens_web_agenda:
+    pattern:  /agenda
+    defaults: { _controller: RubensWebBundle:Frontend:agenda }
+
+rubens_web_historique:
+    pattern:  /historique
+    defaults: { _controller: RubensWebBundle:Frontend:historique }
+
+rubens_web_fssf:
+    pattern:  /fssf
+    defaults: { _controller: RubensWebBundle:Frontend:fssf }
+
+rubens_web_ciss:
+    pattern:  /ciss
+    defaults: { _controller: RubensWebBundle:Frontend:ciss }
+
+rubens_web_contact:
+    pattern:  /contact
+    defaults: { _controller: RubensWebBundle:Frontend:contact }
+
+rubens_web_mentions:
+    pattern:  /mentions
+    defaults: { _controller: RubensWebBundle:Frontend:mentions }
+
+rubens_web_propos:
+    pattern:  /propos
+    defaults: { _controller: RubensWebBundle:Frontend:propos }
+
+rubens_web_plan:
+    pattern:  /plan
+    defaults: { _controller: RubensWebBundle:Frontend:plan }
+
+rubens_web_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: RubensWebBundle:Frontend:voir }
+    requirements:
+        id:  \d+
+
+rubens_web_test:
+    pattern:  /test
+    defaults: { _controller: RubensWebBundle:Frontend:test }
+
+
+# partie admin
+rubens_admin_homepage:
+    pattern:  /admin/
+    defaults: { _controller: RubensWebBundle:Backend:index }
+
+rubens_admin_profil:
+    pattern:  /admin/profil
+    defaults: { _controller: RubensWebBundle:Backend:profil }
+
+rubens_admin_changelog:
+    pattern:  /admin/changelog
+    defaults: { _controller: RubensWebBundle:Backend:changelog }
+
+# partie admin POST
+rubens_admin_post_homepage:
+    pattern:  /admin/post/
+    defaults: { _controller: RubensWebBundle:Post/Post:index }
+
+rubens_admin_post_show:
+    pattern:  /admin/post/{id}/show
+    defaults: { _controller: RubensWebBundle:Post/Post:show }
+
+rubens_admin_post_new:
+    pattern:  /admin/post/new
+    defaults: { _controller: RubensWebBundle:Post/Post:new }
+
+rubens_admin_post_create:
+    pattern:  /admin/post/create
+    defaults: { _controller: RubensWebBundle:Post/Post:create }
+    requirements: { _method: post }
+
+rubens_admin_post_edit:
+    pattern:  /admin/post/edit/{id}
+    defaults: { _controller: RubensWebBundle:Post/Post:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_post_update:
+    pattern:  /admin/post/update/{id}
+    defaults: { _controller: RubensWebBundle:Post/Post:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_post_delete:
+    pattern:  /admin/post/delete/{id}
+    defaults: { _controller: RubensWebBundle:Post/Post:delete }
+    requirements:
+#        { _method: post|get|delete }
+        id:  \d+
+
+
+# partie admin IMAGE
+rubens_admin_image_homepage:
+    pattern:  /admin/image/
+    defaults: { _controller: RubensWebBundle:Image/Image:index }
+
+rubens_admin_image_show:
+    pattern:  /admin/image/{id}/show
+    defaults: { _controller: RubensWebBundle:Image/Image:show }
+
+rubens_admin_image_new:
+    pattern:  /admin/image/new
+    defaults: { _controller: RubensWebBundle:Image/Image:new }
+
+rubens_admin_image_create:
+    pattern:  /admin/image/create
+    defaults: { _controller: RubensWebBundle:Image/Image:create }
+    requirements: { _method: post }
+
+rubens_admin_image_edit:
+    pattern:  /admin/image/edit/{id}
+    defaults: { _controller: RubensWebBundle:Image/Image:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_image_update:
+    pattern:  /admin/image/update/{id}
+    defaults: { _controller: RubensWebBundle:Image/Image:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_image_delete:
+    pattern:  /admin/image/delete/{id}
+    defaults: { _controller: RubensWebBundle:Image/Image:delete }
+    requirements: { _method: post|delete }
+
+# partie admin CATEGORIE
+rubens_admin_categorie_homepage:
+    pattern:  /admin/categorie/
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:index }
+
+rubens_admin_categorie_show:
+    pattern:  /admin/categorie/{id}/show
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:show }
+
+rubens_admin_categorie_new:
+    pattern:  /admin/categorie/new
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:new }
+
+rubens_admin_categorie_create:
+    pattern:  /admin/categorie/create
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:create }
+    requirements: { _method: post }
+
+rubens_admin_categorie_edit:
+    pattern:  /admin/categorie/edit/{id}
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_categorie_update:
+    pattern:  /admin/categorie/update/{id}
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_categorie_delete:
+    pattern:  /admin/categorie/delete/{id}
+    defaults: { _controller: RubensWebBundle:Categorie/Categorie:delete }
+    requirements: { _method: post|delete }
+
+# partie admin UTILISATEURS
+rubens_admin_utilisateur_homepage:
+    pattern:  /admin/utilisateurs/
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:index }
+
+rubens_admin_utilisateur_show:
+    pattern:  /admin/utilisateurs/{id}/show
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:show }
+
+rubens_admin_utilisateur_new:
+    pattern:  /admin/utilisateurs/new
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:new }
+
+rubens_admin_utilisateur_create:
+    pattern:  /admin/utilisateurs/create
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:create }
+    requirements: { _method: post }
+
+rubens_admin_utilisateur_edit:
+    pattern:  /admin/utilisateurs/edit/{id}
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_utilisateur_update:
+    pattern:  /admin/utilisateurs/update/{id}
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_utilisateur_delete:
+    pattern:  /admin/utilisateurs/delete/{id}
+    defaults: { _controller: RubensWebBundle:Utilisateur/Utilisateur:delete }
+    requirements: { _method: post|delete }
+
+
+# partie admin VIDEOS
+rubens_admin_video_homepage:
+    pattern:  /admin/videos/
+    defaults: { _controller: RubensWebBundle:Video/Video:index }
+
+rubens_admin_video_show:
+    pattern:  /admin/videos/{id}/show
+    defaults: { _controller: RubensWebBundle:Video/Video:show }
+
+rubens_admin_video_new:
+    pattern:  /admin/videos/new
+    defaults: { _controller: RubensWebBundle:Video/Video:new }
+
+rubens_admin_video_create:
+    pattern:  /admin/videos/create
+    defaults: { _controller: RubensWebBundle:Video/Video:create }
+    requirements: { _method: post }
+
+rubens_admin_video_edit:
+    pattern:  /admin/videos/edit/{id}
+    defaults: { _controller: RubensWebBundle:Video/Video:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_video_update:
+    pattern:  /admin/videos/update/{id}
+    defaults: { _controller: RubensWebBundle:Video/Video:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_video_delete:
+    pattern:  /admin/videos/delete/{id}
+    defaults: { _controller: RubensWebBundle:Video/Video:delete }
+    requirements: { _method: post|delete }
+
+
+# partie admin DOCUMENTS
+rubens_admin_document_homepage:
+    pattern:  /admin/documents/
+    defaults: { _controller: RubensWebBundle:Document/Document:index }
+
+rubens_admin_document_show:
+    pattern:  /admin/documents/{id}/show
+    defaults: { _controller: RubensWebBundle:Document/Document:show }
+
+rubens_admin_document_new:
+    pattern:  /admin/documents/new
+    defaults: { _controller: RubensWebBundle:Document/Document:new }
+
+rubens_admin_document_create:
+    pattern:  /admin/documents/create
+    defaults: { _controller: RubensWebBundle:Document/Document:create }
+    requirements: { _method: post }
+
+rubens_admin_document_edit:
+    pattern:  /admin/documents/edit/{id}
+    defaults: { _controller: RubensWebBundle:Document/Document:edit }
+    requirements:
+        id:  \d+
+
+rubens_admin_document_update:
+    pattern:  /admin/documents/update/{id}
+    defaults: { _controller: RubensWebBundle:Document/Document:update }
+    requirements:
+        id:  \d+
+
+rubens_admin_document_delete:
+    pattern:  /admin/documents/delete/{id}
+    defaults: { _controller: RubensWebBundle:Document/Document:delete }
+    requirements: { _method: post|delete }

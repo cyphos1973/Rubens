@@ -1,0 +1,19 @@
+# src/Rubens/CoreBundle/Resources/config/doctrine/Utilisateur.orm.yml
+Rubens\CoreBundle\Entity\Utilisateur:
+    type:  entity
+    table: utilisateur
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+            prenom:
+                type: string
+                length: 255
+                nullable: true
+            nom:
+                type: string
+                length: 255
+                nullable: true
+    lifecycleCallbacks: {  }

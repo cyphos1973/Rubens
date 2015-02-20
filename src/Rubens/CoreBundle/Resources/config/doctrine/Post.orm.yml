@@ -1,0 +1,72 @@
+Rubens\CoreBundle\Entity\Post:
+    type: entity
+    table: post
+    repositoryClass: Rubens\CoreBundle\Entity\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        subtitle:
+            type: string
+            length: 255
+        chapo:
+            type: text
+        body:
+            type: text
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        published:
+            type: boolean
+        publishedAt:
+            type: datetime
+            nullable: true
+        enabledVideo:
+            type: boolean
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt, setUpdatedAt ]
+        preUpdate: [ setUpdatedAt ]
+    manyToMany:
+        images:
+            targetEntity: Rubens\CoreBundle\Entity\Image
+            cascade: ["persist", "merge"]
+            inversedBy: posts
+            joinTable:
+                name: post_image
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    image_id:
+                        referencedColumnName: id
+        categories:
+            targetEntity: Rubens\CoreBundle\Entity\Categorie
+            inversedBy: posts
+            cascade: ["persist"]
+            joinTable:
+                name: post_categorie
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    categorie_id:
+                        referencedColumnName: id
+        videos:
+            targetEntity: Rubens\CoreBundle\Entity\Video
+            inversedBy: posts
+            cascade: ["persist"]
+            joinTable:
+                name: post_video
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    video_id:
+                        referencedColumnName: id

@@ -1,0 +1,32 @@
+{# src/Rubens/WebBundle/Ressources/views/Frontend/index.html.twig #}
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}TEST{% endblock %}
+
+{% block body %}
+    <h1>TEST</h1>
+    <div class="row">
+        {# total items count #}
+        <div class="count">
+            {{ archives.getTotalItemCount }}
+        </div>
+        <table>
+        <tr>
+        {# sorting of properties based on query components #}
+            <th>{{ knp_pagination_sortable(archives, 'Id', 'a.id') }}</th>
+            <th{% if archives.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(archives, 'Title', 'a.title') }}</th>
+        </tr>
+
+        {# table body #}
+        {% for article in archives %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td>{{ article.id }}</td>
+            <td>{{ article.title }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {# display navigation #}
+        <ul class="navigation">
+            {{ knp_pagination_render(archives) }}
+        </ul>
+    </div>
+{% endblock %}

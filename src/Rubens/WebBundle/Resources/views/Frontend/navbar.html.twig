@@ -1,0 +1,89 @@
+{# src/Rubens/WebBundle/Resources/views/Frontend/navbar.html.twig #}
+
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>        
+        <a class="navbar-brand" href="{{path('rubens_web_homepage')}}"><i class="glyphicon glyphicon-home"></i></a>
+    </div>
+    <div class="navbar-collapse collapse">
+        {{ knp_menu_render('RubensCoreBundle:Builder:mainMenu', {'template': 'RubensWebBundle:Menu:knp_menu.html.twig'}) }}
+{#        {{ knp_menu_render('RubensCoreBundle:Builder:rightMenu', {'template': 'RubensWebBundle:Menu:knp_menu.html.twig'}) }}#}
+    </div>
+</div>
+
+{#<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{path('rubens_web_homepage')}}"><i class="glyphicon glyphicon-home"></i></a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ path('rubens_web_historique')}}">Historique</a></li>
+        <li><a href="{{ path('rubens_web_fssf')}}">FSSF</a></li>
+        <li><a href="{{ path('rubens_web_ciss')}}">CISS</a></li>
+        <li><a href="{{ path('rubens_web_divers')}}">Divers</a></li>
+        <li><a href="{{ path('rubens_web_portfolio')}}">Portfolio</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ path('rubens_web_agenda')}}">Agenda</a></li>
+        <li><a href="{{path('rubens_web_archives')}}">Archives</a></li>
+        <li><a href="{{ path('rubens_web_bureau')}}">Bureau</a></li>
+        <li><a href="{{ path('rubens_web_contact')}}">Contact</a></li>
+      </ul>
+    </div>
+</div>#}
+{#
+<nav class="collapse navbar-collapse" role="navigation">
+			<ul id="menu-primary" class="nav navbar-nav no-float"><li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-4 active"><a title="Home" href="http://theboot.fenwickmedia.com/">Home</a></li>
+<li id="menu-item-5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5"><a title="Sample Page" href="http://theboot.fenwickmedia.com/sample-page/">Sample Page</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17 dropdown"><a title="Buy It Now!" href="#" data-toggle="dropdown" class="dropdown-toggle">Buy It Now! <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-1702" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1702 dropdown-submenu"><a title="Level 1" href="#" data-toggle="dropdown" class="dropdown-toggle">Level 1</a>
+	<ul role="menu" class=" dropdown-menu">
+		<li id="menu-item-1703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1703"><a title="Level 1a" href="http://theboot.fenwickmedia.com/level-1a/">Level 1a</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-38 dropdown"><a title="Level 1" href="#" data-toggle="dropdown" class="dropdown-toggle">Level 1 <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-43 dropdown-submenu"><a title="Page A" href="#" data-toggle="dropdown" class="dropdown-toggle">Page A</a>
+	<ul role="menu" class=" dropdown-menu">
+		<li id="menu-item-1701" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1701"><a title="Level 2" href="http://theboot.fenwickmedia.com/level-2/">Level 2</a></li>
+		<li id="menu-item-1700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1700"><a title="Level 3" href="http://theboot.fenwickmedia.com/level-3/">Level 3</a></li>
+	</ul>
+</li>
+	<li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a title="Page B" href="http://theboot.fenwickmedia.com/page-b/">Page B</a></li>
+</ul>
+</li>
+</ul>
+			<ul class="nav navbar-right navbar-nav">
+				<li class="menuSocial"><a href="http://facebook.com/jeffmouldtech" title="Facebook Jeff Mould"><i class="fa fa-facebook"></i></a></li><li class="menuSocial"><a href="http://twitter.com/jeffmould" title="Twitter Jeff Mould"><i class="fa fa-twitter"></i></a></li><li class="menuSocial"><a href="https://plus.google.com/+JeffMould" title="Google+"><i class="fa fa-google-plus"></i></a></li><li class="menuSocial"><a href="http://youtube.com/jeffmould" title="YouTube"><i class="fa fa-youtube"></i></a></li>				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-search"></span></a>
+				<ul class="dropdown-menu">
+				<li>
+				  <form class="form-inline" role="form" method="get" action="#">
+				    <div class="input-group">
+				      <input type="search" class="form-control" placeholder="Search …" value="" name="s" title="Search for:">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="submit">Search</button>
+				      </span>
+				    </div>
+				  </form>
+				</li>
+				</ul>
+				</li>
+			</ul>
+
+
+		</nav>#}

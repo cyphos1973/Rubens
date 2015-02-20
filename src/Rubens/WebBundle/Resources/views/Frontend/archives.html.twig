@@ -1,0 +1,57 @@
+{# src/Rubens/WebBundle/Ressources/views/Frontend/archives.html.twig #}
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}Archives{% endblock %}
+{% block body %}
+                
+<!--            <video class="video-js" controls
+              preload="auto" width="480" height="320" poster="img/poster.jpg" data-setup="{}">
+              <source src="http://www.rubens-alcais.org/histoire/video1931/CISS1931.wmv" type="video/mwv">
+              <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm">
+            </video>-->
+
+<h1>ARCHIVES</h1>
+    <ul class="navigation">
+    {{ knp_pagination_render(archives) }}
+    </ul>
+{% for archive in archives %}
+{#    <div class="media">
+        {%for image in archive.images %}
+            <a class="pull-left" href="{{ path('rubens_web_voir', {'id': archive.id} ) }}">
+              <img class="media-object" src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(100,100).grayscale.jpeg }}" alt="{{ image.alt }}">
+            </a>
+        {% endfor %}
+        <div class="media-body">
+          <h4 class="media-heading">{{ archive.title }}</h4>
+          {{ archive.chapo }}
+        </div>
+    </div>#}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-8">
+                 <h4><strong><a href="{{ path('rubens_web_voir', {'id': archive.id} ) }}">{{ archive.title }}</a></strong></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"> 
+                <a href="#" class="thumbnail">
+                    {%for image in archive.images %}
+                    <img src="{{ image('bundles/rubensweb/images/'~image.url).zoomCrop(330,180).grayscale.jpeg }}" alt="{{ image.alt }}" class="img-responsive">
+                    {% endfor %}
+                </a>
+            </div>
+            <div class="col-md-10">
+                <p>{{ archive.chapo }}</p>
+                <p> <i class="glyphicon glyphicon-calendar"></i> Crée le {{ archive.createdAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-pencil"></i> Modifié le {{ archive.updatedAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-ok-sign"></i> Publié le {{ archive.publishedAt|date('d-m-Y à H:i') }} | <i class="glyphicon glyphicon-tags"></i> {% for categorie in archive.categories %}<span class="label label-info">{{ categorie.title }}</span> {% endfor %} 
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+{% endfor %}
+    <ul class="navigation">
+    {{ knp_pagination_render(archives) }}
+    </ul>
+{% endblock %}

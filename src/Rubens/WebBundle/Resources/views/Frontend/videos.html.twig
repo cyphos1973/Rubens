@@ -1,0 +1,27 @@
+{# src/Rubens/WebBundle/Ressources/views/Frontend/index.html.twig #}
+{% extends "RubensWebBundle:Frontend:frontend.html.twig" %}
+{% block title %}VIDEOS{% endblock %}
+
+{% block body %}
+    <h1>VIDEOS</h1>
+    <div class="row">
+        <ul class="navigation">
+        {{ knp_pagination_render(videos) }}
+        </ul>
+        {% for video in videos %}
+            <div class="col-xs-6 col-md-3">
+                <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+                    <iframe allowfullscreen="" src="http://www.youtube.com/embed/{{video.url}}" frameborder="0"></iframe>
+                </div>
+            </div>
+{#            <div class="col-xs-6 col-md-3 col-lg-12">
+                <p>
+                    <span class="label label-default label-arrow label-arrow-right pull-left">{{ video.createdAt|date('d-m-Y') }}</span> :
+                    <a href="http://www.youtube.com/watch?v={{ video.url }}" class="zoombox">
+                     {{ video.title }}
+                    </a>
+                </p>
+            </div>#}
+        {% endfor %}
+    </div>
+{% endblock %}

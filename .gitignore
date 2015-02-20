@@ -1,4 +1,5 @@
 .travis.yml
+app/bootstrap.php.cache
 bin/*
 nbproject/
 vendor/*

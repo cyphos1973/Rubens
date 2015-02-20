@@ -43,7 +43,6 @@ class ImageController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $nextAction = $form->get('save')->isClicked()? 'task_new': 'task_success';
             $this->get('session')->getFlashBag()->add('notice', 'Une image vient d\'être crée.');
             
             return $this->redirect($this->generateUrl('rubens_admin_image_show', array('id' => $entity->getId())));

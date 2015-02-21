@@ -4,21 +4,21 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f2e7fda6492248ff2199e102f9441be",
+    "hash": "019857e4f32e7c8ecc333363f8e2119c",
     "packages": [
         {
             "name": "cnerta/breadcrumb-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "Cnerta/BreadcrumbBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AgrosupDijon-Eduter/BreadcrumbBundle.git",
-                "reference": "9d3e7013fead1d5694280bd6cd5ee18252eca72d"
+                "reference": "2fdb75cc1fc5fd79c078e07e9df6f2b7e376556c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AgrosupDijon-Eduter/BreadcrumbBundle/zipball/9d3e7013fead1d5694280bd6cd5ee18252eca72d",
-                "reference": "9d3e7013fead1d5694280bd6cd5ee18252eca72d",
+                "url": "https://api.github.com/repos/AgrosupDijon-Eduter/BreadcrumbBundle/zipball/2fdb75cc1fc5fd79c078e07e9df6f2b7e376556c",
+                "reference": "2fdb75cc1fc5fd79c078e07e9df6f2b7e376556c",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2014-10-04 11:36:34"
+            "time": "2014-08-26 10:09:39"
         },
         {
             "name": "doctrine/annotations",
@@ -1266,7 +1266,7 @@
         },
         {
             "name": "gregwar/image-bundle",
-            "version": "dev-master",
+            "version": "v2.0.19",
             "target-dir": "Gregwar/ImageBundle",
             "source": {
                 "type": "git",
@@ -1311,41 +1311,36 @@
         },
         {
             "name": "hautelook/alice-bundle",
-            "version": "dev-master",
+            "version": "0.1.5",
+            "target-dir": "Hautelook/AliceBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hautelook/AliceBundle.git",
-                "reference": "c8b4fb387e9e0ba53055f4187b81efa4a66bce75"
+                "reference": "912ca5351cd26e283255d53d7d29d247cbc32ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/c8b4fb387e9e0ba53055f4187b81efa4a66bce75",
-                "reference": "c8b4fb387e9e0ba53055f4187b81efa4a66bce75",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/912ca5351cd26e283255d53d7d29d247cbc32ea9",
+                "reference": "912ca5351cd26e283255d53d7d29d247cbc32ea9",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "nelmio/alice": "~1.7",
+                "nelmio/alice": "~1.6",
                 "php": ">=5.3.0"
             },
             "require-dev": {
                 "doctrine/orm": "~2.4",
-                "hautelook/solarium-fixtures": "~1.0",
-                "solarium/solarium": "~3.1",
                 "symfony/browser-kit": "~2.1",
                 "symfony/console": "~2.1",
                 "symfony/framework-bundle": "~2.1",
-                "symfony/validator": "~2.1",
                 "symfony/yaml": "~2.1"
-            },
-            "suggest": {
-                "hautelook/solarium-fixtures": "To add Solarium fixtures"
             },
             "type": "symfony-bundle",
             "autoload": {
-                "psr-4": {
-                    "Hautelook\\AliceBundle\\": ""
+                "psr-0": {
+                    "Hautelook\\AliceBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1355,7 +1350,8 @@
             "authors": [
                 {
                     "name": "Baldur Rensch",
-                    "email": "brensch@gmail.com"
+                    "email": "brensch@gmail.com",
+                    "role": "The guy that does the dirty work"
                 }
             ],
             "description": "Symfony2 Bundle that helps loading fixture data written with the Alice library",
@@ -1365,20 +1361,20 @@
                 "alice",
                 "orm"
             ],
-            "time": "2014-10-29 05:43:59"
+            "time": "2014-03-12 05:18:55"
         },
         {
             "name": "helios-ag/fm-elfinder-bundle",
-            "version": "dev-master",
+            "version": "3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helios-ag/FMElfinderBundle.git",
-                "reference": "db854c0013415f0441ee87881e76a5b933b1cfef"
+                "reference": "d62b4b17d3efea72239f0a56d5b4c9c557292c09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/db854c0013415f0441ee87881e76a5b933b1cfef",
-                "reference": "db854c0013415f0441ee87881e76a5b933b1cfef",
+                "url": "https://api.github.com/repos/helios-ag/FMElfinderBundle/zipball/d62b4b17d3efea72239f0a56d5b4c9c557292c09",
+                "reference": "d62b4b17d3efea72239f0a56d5b4c9c557292c09",
                 "shasum": ""
             },
             "require": {
@@ -1424,7 +1420,7 @@
                 "elfinder",
                 "file manager"
             ],
-            "time": "2015-02-18 16:12:53"
+            "time": "2015-01-20 02:53:32"
         },
         {
             "name": "helios-ag/fm-elfinder-php-connector",
@@ -4301,12 +4297,8 @@
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/data-fixtures": 20,
         "friendsofsymfony/user-bundle": 20,
-        "gregwar/image-bundle": 20,
-        "hautelook/alice-bundle": 20,
-        "helios-ag/fm-elfinder-bundle": 20,
         "knplabs/knp-menu": 20,
         "knplabs/knp-menu-bundle": 20,
-        "cnerta/breadcrumb-bundle": 20,
         "sonata-project/media-bundle": 20,
         "sonata-project/classification-bundle": 20,
         "sonata-project/datagrid-bundle": 20

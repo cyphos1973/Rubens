@@ -20,25 +20,12 @@ class PostType extends AbstractType
             ->add('chapo')
             ->add('body', 'ckeditor', array(
                 'config' => array(
-//                    'toolbar' => array(
-//                        array(
-//                            'name'  => 'document',
-//                            'items' => array('Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates', 'ImageButton'),
-//                        ),
-//                        '/',
-//                        array(
-//                            'name'  => 'basicstyles',
-//                            'items' => array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'),
-//                        ),
-//                    ),
-                    'uiColor' => '#ffffff',
                     'filebrowser_image_browse_url' => array(
                         'route'            => 'elfinder',
                         'route_parameters' => array('instance' => 'ckeditor'),
                     ),
-                )
+                ),
             ))
-//            ->add('body', 'textarea', array('attr' => array('rows' => '10')) )
             ->add('published', 'checkbox', array(
                 'label' => 'Publication : ',
                 'required' => false
